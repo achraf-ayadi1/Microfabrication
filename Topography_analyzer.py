@@ -125,3 +125,19 @@ if __name__ == "__main__":
     print("SUMMARY RESULTS TABLE FOR PROTOCOL DATA SHEET:")
     import sweetness_display # internal utility check
     display(df_final_report)
+
+import numpy as np
+
+# Input your precise numbers from the lab bench here!
+I_amps = 0.010    # 10 mA current converted to Amperes
+V_volts = 0.030   # 30 mV voltage converted to Volts
+t_metal_nm = 331.29 # Your derived metal thickness from our previous steps
+
+# Calculate Sheet Resistance
+Rs = 4.532 * (V_volts / I_amps)
+
+# Convert thickness to cm and compute Resistivity
+t_metal_cm = t_metal_nm * 1e-7
+rho = Rs * t_metal_cm
+print(f"Calculated Sheet Resistance (Rs): {Rs:.3f} Ohms/sq")
+print(f"Calculated Thin-Film Resistivity (rho): {rho:.2e} Ohm-cm")
